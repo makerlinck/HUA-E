@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>AboutMeTab.ets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #faa23d;}
+.s2 { color: #aa7dfc;}
+.s3 { color: #e2da90;}
+.s4 { color: #bbb529;}
+.s5 { color: #b3e54c;}
+.s6 { color: #db7e9b;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AboutMeTab.ets</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">{ </span><span class="s0">Constants </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../common/Constants'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">ListItemModel </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../viewmodel/ListItem'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">initList </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../viewmodel/ListViewModel'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">TradeInfo </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../pages/TradeInfo'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">router </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'@kit.ArkUI'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">BusinessError </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'@kit.BasicServicesKit'</span><span class="s3">;</span>
+
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct AboutMeComponent </span><span class="s1">{</span>
+  <span class="s4">@</span><span class="s0">State stan_color</span><span class="s3">:</span><span class="s0">ResourceColor </span><span class="s3">= </span><span class="s2">'#6FE838'</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State stan_light_color</span><span class="s3">:</span><span class="s0">ResourceColor </span><span class="s3">= </span><span class="s2">'#A6E885'</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State stan_light_gray</span><span class="s3">:</span><span class="s0">ResourceColor </span><span class="s3">= </span><span class="s2">'#F1F1F1'</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State full_w</span><span class="s3">: </span><span class="s0">Length </span><span class="s3">= </span><span class="s2">'100%'</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State stan_h</span><span class="s3">: </span><span class="s0">Length </span><span class="s3">= </span><span class="s5">140</span><span class="s3">;</span>
+
+  <span class="s4">@</span><span class="s0">State settingList</span><span class="s3">: </span><span class="s0">Array</span><span class="s3">&lt;</span><span class="s0">ListItemModel</span><span class="s3">&gt; = </span><span class="s0">initList</span><span class="s6">()</span><span class="s3">;</span>
+
+  <span class="s4">@</span><span class="s0">Builder</span>
+  <span class="s0">SettingButton</span><span class="s6">(</span><span class="s0">image</span><span class="s3">: </span><span class="s0">Resource </span><span class="s3">,</span><span class="s0">title</span><span class="s3">: </span><span class="s0">ResourceStr </span><span class="s3">,</span><span class="s0">target</span><span class="s3">: </span><span class="s0">string</span><span class="s6">) </span><span class="s1">{</span>
+      <span class="s0">Button</span><span class="s6">() </span><span class="s1">{</span>
+        <span class="s0">Stack</span><span class="s6">() </span><span class="s1">{</span>
+          <span class="s0">Image</span><span class="s6">(</span><span class="s0">image</span><span class="s6">)</span><span class="s3">.</span><span class="s0">width</span><span class="s6">(</span><span class="s5">30</span><span class="s6">)</span><span class="s3">.</span><span class="s0">height</span><span class="s6">(</span><span class="s5">30</span><span class="s6">)</span><span class="s3">.</span><span class="s0">fillColor</span><span class="s6">(</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">Gray</span><span class="s6">)</span>
+          <span class="s0">Text</span><span class="s6">(</span><span class="s0">title</span><span class="s6">)</span><span class="s3">.</span><span class="s0">fontSize</span><span class="s6">(</span><span class="s5">20</span><span class="s6">)</span><span class="s3">.</span><span class="s0">letterSpacing</span><span class="s6">(</span><span class="s5">1</span><span class="s6">)</span><span class="s3">.</span><span class="s0">textAlign</span><span class="s6">(</span><span class="s0">TextAlign</span><span class="s3">.</span><span class="s0">Start</span><span class="s6">)</span><span class="s3">.</span><span class="s0">offset</span><span class="s6">(</span><span class="s1">{</span><span class="s0">x</span><span class="s3">: </span><span class="s5">90</span><span class="s1">}</span><span class="s6">)</span>
+        <span class="s1">}</span>
+      <span class="s1">}</span><span class="s3">.</span><span class="s0">width</span><span class="s6">(</span><span class="s2">'100%'</span><span class="s6">)</span><span class="s3">.</span><span class="s0">height</span><span class="s6">(</span><span class="s5">60</span><span class="s6">)</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s6">(</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">White</span><span class="s6">)</span><span class="s3">.</span><span class="s0">type</span><span class="s6">(</span><span class="s0">ButtonType</span><span class="s3">.</span><span class="s0">Normal</span><span class="s6">)</span><span class="s3">.</span><span class="s0">align</span><span class="s6">(</span><span class="s0">Alignment</span><span class="s3">.</span><span class="s0">Start</span><span class="s6">)</span><span class="s3">.</span><span class="s0">borderRadius</span><span class="s6">(</span><span class="s5">15</span><span class="s6">)</span><span class="s3">.</span><span class="s0">margin</span><span class="s6">(</span><span class="s5">5</span><span class="s6">)</span>
+      <span class="s3">.</span><span class="s0">onClick</span><span class="s6">(() </span><span class="s3">=&gt; </span><span class="s1">{</span>
+
+        <span class="s0">router</span><span class="s3">.</span><span class="s0">pushUrl</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">url</span><span class="s3">:</span><span class="s0">target</span><span class="s1">}</span><span class="s6">)</span><span class="s3">.</span><span class="s0">then</span><span class="s6">(() </span><span class="s3">=&gt; </span><span class="s1">{</span>
+        <span class="s1">}</span><span class="s6">)</span><span class="s3">.</span><span class="s0">catch</span><span class="s6">((</span><span class="s0">err</span><span class="s3">: </span><span class="s0">BusinessError</span><span class="s6">) </span><span class="s3">=&gt; </span><span class="s1">{</span>
+          <span class="s0">console</span><span class="s3">.</span><span class="s0">error</span><span class="s6">(</span><span class="s2">`Failed to jump to the second page. Code is </span><span class="s1">${</span><span class="s0">err</span><span class="s3">.</span><span class="s0">code</span><span class="s1">}</span><span class="s2">, message is </span><span class="s1">${</span><span class="s0">err</span><span class="s3">.</span><span class="s0">message</span><span class="s1">}</span><span class="s2">`</span><span class="s6">)</span>
+        <span class="s1">}</span><span class="s6">)</span>
+      <span class="s1">}</span><span class="s6">)</span>
+  <span class="s1">}</span>
+
+  <span class="s0">build</span><span class="s6">() </span><span class="s1">{</span>
+    <span class="s0">List</span><span class="s6">() </span><span class="s1">{</span>
+      <span class="s0">ListItem</span><span class="s6">() </span><span class="s1">{</span>
+        <span class="s0">Stack</span><span class="s6">() </span><span class="s1">{</span>
+          <span class="s0">Image</span><span class="s6">(</span><span class="s0">$rawfile</span><span class="s6">(</span><span class="s2">'hc1.jpg'</span><span class="s6">))</span>
+            <span class="s3">.</span><span class="s0">width</span><span class="s6">(</span><span class="s5">80</span><span class="s6">)</span>
+            <span class="s3">.</span><span class="s0">height</span><span class="s6">(</span><span class="s5">80</span><span class="s6">)</span>
+            <span class="s3">.</span><span class="s0">borderRadius</span><span class="s6">(</span><span class="s2">'40'</span><span class="s6">)</span>
+
+          <span class="s0">Text</span><span class="s6">(</span><span class="s2">'DEV'</span><span class="s6">)</span><span class="s3">.</span><span class="s0">fontSize</span><span class="s6">(</span><span class="s5">24</span><span class="s6">)</span><span class="s3">.</span><span class="s0">offset</span><span class="s6">(</span><span class="s1">{</span><span class="s0">y</span><span class="s3">:</span><span class="s5">60</span><span class="s1">}</span><span class="s6">)</span>
+        <span class="s1">}</span>
+      <span class="s1">}</span>
+      <span class="s3">.</span><span class="s0">width</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">full_w</span><span class="s6">)</span>
+      <span class="s3">.</span><span class="s0">height</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">stan_h</span><span class="s6">)</span>
+      <span class="s0">TradeInfo</span><span class="s6">()</span>
+
+      <span class="s0">ListItem</span><span class="s6">() </span><span class="s1">{</span>
+        <span class="s0">Text</span><span class="s6">(</span><span class="s2">'广告位招租'</span><span class="s6">)</span><span class="s3">.</span><span class="s0">fontSize</span><span class="s6">(</span><span class="s5">30</span><span class="s6">)</span>
+      <span class="s1">}</span><span class="s3">.</span><span class="s0">width</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">full_w</span><span class="s6">)</span><span class="s3">.</span><span class="s0">height</span><span class="s6">(</span><span class="s5">240</span><span class="s6">)</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s6">(</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">White</span><span class="s6">)</span><span class="s3">.</span><span class="s0">borderRadius</span><span class="s6">(</span><span class="s5">15</span><span class="s6">)</span><span class="s3">.</span><span class="s0">margin</span><span class="s6">(</span><span class="s5">5</span><span class="s6">)</span>
+
+      <span class="s0">ForEach</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">settingList </span><span class="s3">,</span><span class="s6">(</span><span class="s0">item</span><span class="s3">: </span><span class="s0">ListItemModel</span><span class="s6">) </span><span class="s3">=&gt; </span><span class="s1">{</span>
+        <span class="s0">this</span><span class="s3">.</span><span class="s0">SettingButton</span><span class="s6">(</span><span class="s0">item</span><span class="s3">.</span><span class="s0">image</span><span class="s3">,</span><span class="s0">item</span><span class="s3">.</span><span class="s0">title</span><span class="s3">,</span><span class="s0">item</span><span class="s3">.</span><span class="s0">target</span><span class="s6">)</span>
+      <span class="s1">}</span><span class="s6">)</span>
+    <span class="s1">}</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">stan_light_gray</span><span class="s6">)</span>
+  <span class="s1">}</span>
+
+
+<span class="s1">}</span>
+<span class="s0">export </span><span class="s1">{ </span><span class="s0">AboutMeComponent </span><span class="s1">}</span>
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>About.ets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #faa23d;}
+.s2 { color: #aa7dfc;}
+.s3 { color: #e2da90;}
+.s4 { color: #bbb529;}
+.s5 { color: #db7e9b;}
+.s6 { color: #b3e54c;}
+.s7 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+About.ets</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">{ </span><span class="s0">router </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'@kit.ArkUI'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">BusinessError </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'@kit.BasicServicesKit'</span><span class="s3">;</span>
+
+<span class="s4">@</span><span class="s0">Entry</span>
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct About </span><span class="s1">{</span>
+  <span class="s4">@</span><span class="s0">State message</span><span class="s3">: </span><span class="s0">string </span><span class="s3">= </span><span class="s2">'Hi there'</span>
+
+  <span class="s0">build</span><span class="s5">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s5">() </span><span class="s1">{</span>
+      <span class="s0">Column</span><span class="s5">() </span><span class="s1">{</span>
+        <span class="s0">Text</span><span class="s5">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">message</span><span class="s5">)</span>
+          <span class="s3">.</span><span class="s0">fontSize</span><span class="s5">(</span><span class="s6">50</span><span class="s5">)</span>
+          <span class="s3">.</span><span class="s0">fontWeight</span><span class="s5">(</span><span class="s0">FontWeight</span><span class="s3">.</span><span class="s0">Bold</span><span class="s5">)</span>
+        <span class="s0">Button</span><span class="s5">() </span><span class="s1">{</span>
+          <span class="s0">Text</span><span class="s5">(</span><span class="s2">'Back'</span><span class="s5">)</span>
+            <span class="s3">.</span><span class="s0">fontSize</span><span class="s5">(</span><span class="s6">25</span><span class="s5">)</span>
+            <span class="s3">.</span><span class="s0">fontWeight</span><span class="s5">(</span><span class="s0">FontWeight</span><span class="s3">.</span><span class="s0">Bold</span><span class="s5">)</span>
+        <span class="s1">}</span>
+        <span class="s3">.</span><span class="s0">type</span><span class="s5">(</span><span class="s0">ButtonType</span><span class="s3">.</span><span class="s0">Capsule</span><span class="s5">)</span>
+        <span class="s3">.</span><span class="s0">margin</span><span class="s5">(</span><span class="s1">{</span>
+          <span class="s0">top</span><span class="s3">: </span><span class="s6">20</span>
+        <span class="s1">}</span><span class="s5">)</span>
+        <span class="s3">.</span><span class="s0">backgroundColor</span><span class="s5">(</span><span class="s2">'#0D9FFB'</span><span class="s5">)</span>
+        <span class="s3">.</span><span class="s0">width</span><span class="s5">(</span><span class="s2">'40%'</span><span class="s5">)</span>
+        <span class="s3">.</span><span class="s0">height</span><span class="s5">(</span><span class="s2">'5%'</span><span class="s5">)</span>
+
+        <span class="s3">.</span><span class="s0">onClick</span><span class="s5">(() </span><span class="s3">=&gt; </span><span class="s1">{</span>
+          <span class="s0">console</span><span class="s3">.</span><span class="s0">info</span><span class="s5">(</span><span class="s2">`Succeeded in clicking the 'Back' button.`</span><span class="s5">)</span>
+          <span class="s0">try </span><span class="s1">{</span>
+            <span class="s7">// 返回第一页</span>
+            <span class="s0">router</span><span class="s3">.</span><span class="s0">back</span><span class="s5">()</span>
+            <span class="s0">console</span><span class="s3">.</span><span class="s0">info</span><span class="s5">(</span><span class="s2">'Succeeded in returning to the first page.'</span><span class="s5">)</span>
+          <span class="s1">} </span><span class="s0">catch </span><span class="s5">(</span><span class="s0">err</span><span class="s5">) </span><span class="s1">{</span>
+            <span class="s0">let code </span><span class="s3">= </span><span class="s5">(</span><span class="s0">err as BusinessError</span><span class="s5">)</span><span class="s3">.</span><span class="s0">code</span><span class="s3">;</span>
+            <span class="s0">let message </span><span class="s3">= </span><span class="s5">(</span><span class="s0">err as BusinessError</span><span class="s5">)</span><span class="s3">.</span><span class="s0">message</span><span class="s3">;</span>
+            <span class="s0">console</span><span class="s3">.</span><span class="s0">error</span><span class="s5">(</span><span class="s2">`Failed to return to the first page. Code is </span><span class="s1">${</span><span class="s0">code</span><span class="s1">}</span><span class="s2">, message is </span><span class="s1">${</span><span class="s0">message</span><span class="s1">}</span><span class="s2">`</span><span class="s5">)</span>
+          <span class="s1">}</span>
+        <span class="s1">}</span><span class="s5">)</span>
+      <span class="s1">}</span>
+      <span class="s3">.</span><span class="s0">width</span><span class="s5">(</span><span class="s2">'100%'</span><span class="s5">)</span>
+    <span class="s1">}</span>
+    <span class="s3">.</span><span class="s0">height</span><span class="s5">(</span><span class="s2">'100%'</span><span class="s5">)</span>
+  <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

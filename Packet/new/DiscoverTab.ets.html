@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>DiscoverTab.ets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #faa23d;}
+.s2 { color: #aa7dfc;}
+.s3 { color: #bbb529;}
+.s4 { color: #db7e9b;}
+.s5 { color: #e2da90;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DiscoverTab.ets</font>
+</center></td></tr></table>
+<pre>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">SearchBar </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'./SearchBarComponent'</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">Constants </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../common/Constants'</span>
+
+<span class="s3">@</span><span class="s0">Component</span>
+<span class="s0">struct Discover </span><span class="s1">{</span>
+
+  <span class="s0">build</span><span class="s4">() </span><span class="s1">{</span>
+    <span class="s0">Row </span><span class="s4">() </span><span class="s1">{</span>
+      <span class="s0">SearchBar</span><span class="s4">()</span>
+        <span class="s5">.</span><span class="s0">margin</span><span class="s4">(</span><span class="s0">Constants</span><span class="s5">.</span><span class="s0">MARGIN_SIXTEEN</span><span class="s4">)</span>
+
+      <span class="s0">List</span><span class="s4">() </span><span class="s1">{</span>
+        <span class="s0">ListItem</span><span class="s4">()</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span><span class="s5">.</span><span class="s0">width</span><span class="s4">(</span><span class="s2">'100%'</span><span class="s4">)</span><span class="s5">.</span><span class="s0">height</span><span class="s4">(</span><span class="s2">'100%'</span><span class="s4">)</span>
+  <span class="s1">}</span>
+
+<span class="s1">}</span>
+
+<span class="s0">export </span><span class="s1">{</span><span class="s0">Discover</span><span class="s1">}</span></pre>
+</body>
+</html>

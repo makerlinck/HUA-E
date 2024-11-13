@@ -1,0 +1,21 @@
+{
+  "string": [
+    {
+      "name": "message",
+      "value": "消息"
+    },
+
+    {
+      "name": "discover",
+      "value": "探索"
+    },
+    {
+      "name": "tab_homepage",
+      "value": "首页"
+    },
+    {
+      "name": "tab_mine",
+      "value": "我的"
+    }
+  ]
+}

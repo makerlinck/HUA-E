@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>TradeInfo.ets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bbb529;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #faa23d;}
+.s3 { color: #e2da90;}
+.s4 { color: #b3e54c;}
+.s5 { color: #db7e9b;}
+.s6 { color: #aa7dfc;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+TradeInfo.ets</font>
+</center></td></tr></table>
+<pre><span class="s0">@</span><span class="s1">Preview</span>
+<span class="s0">@</span><span class="s1">Component</span>
+<span class="s1">struct TradeInfo </span><span class="s2">{</span>
+  <span class="s0">@</span><span class="s1">State stan_radius</span><span class="s3">:</span><span class="s1">Length </span><span class="s3">= </span><span class="s4">15</span><span class="s3">;</span>
+  <span class="s0">@</span><span class="s1">Builder</span>
+  <span class="s1">TradeInfoItem</span><span class="s5">() </span><span class="s2">{</span>
+    <span class="s1">Button</span><span class="s5">(</span><span class="s2">{</span><span class="s1">type</span><span class="s3">: </span><span class="s1">ButtonType</span><span class="s3">.</span><span class="s1">Normal</span><span class="s2">}</span><span class="s5">) </span><span class="s2">{</span>
+      <span class="s1">Column</span><span class="s5">() </span><span class="s2">{</span>
+        <span class="s1">Text</span><span class="s5">(</span><span class="s6">'15'</span><span class="s5">)</span><span class="s3">.</span><span class="s1">fontSize</span><span class="s5">(</span><span class="s4">25</span><span class="s5">)</span>
+        <span class="s1">Text</span><span class="s5">(</span><span class="s6">'DEV'</span><span class="s5">)</span><span class="s3">.</span><span class="s1">fontSize</span><span class="s5">(</span><span class="s4">15</span><span class="s5">)</span>
+      <span class="s2">}</span>
+    <span class="s2">}</span><span class="s3">.</span><span class="s1">backgroundColor</span><span class="s5">(</span><span class="s1">Color</span><span class="s3">.</span><span class="s1">White</span><span class="s5">)</span><span class="s3">.</span><span class="s1">width</span><span class="s5">(</span><span class="s6">'24%'</span><span class="s5">)</span><span class="s3">.</span><span class="s1">height</span><span class="s5">(</span><span class="s4">60</span><span class="s5">)</span><span class="s3">.</span><span class="s1">borderRadius</span><span class="s5">(</span><span class="s4">15</span><span class="s5">)</span><span class="s3">.</span><span class="s1">margin</span><span class="s5">(</span><span class="s4">5</span><span class="s5">)</span><span class="s3">.</span><span class="s1">shadow</span><span class="s5">(</span><span class="s2">{ </span><span class="s1">radius</span><span class="s3">: </span><span class="s4">15</span><span class="s3">, </span><span class="s1">color</span><span class="s3">: </span><span class="s1">Color</span><span class="s3">.</span><span class="s1">Gray</span><span class="s3">, </span><span class="s1">offsetX</span><span class="s3">: </span><span class="s4">0</span><span class="s3">, </span><span class="s1">offsetY</span><span class="s3">: </span><span class="s4">15 </span><span class="s2">}</span><span class="s5">)</span>
+  <span class="s2">}</span>
+
+  <span class="s0">@</span><span class="s1">Builder</span>
+  <span class="s1">TradeInfoBox</span><span class="s5">() </span><span class="s2">{</span>
+    <span class="s1">Flex</span><span class="s5">(</span><span class="s2">{ </span><span class="s1">justifyContent</span><span class="s3">: </span><span class="s1">FlexAlign</span><span class="s3">.</span><span class="s1">SpaceBetween </span><span class="s2">}</span><span class="s5">) </span><span class="s2">{</span>
+      <span class="s1">this</span><span class="s3">.</span><span class="s1">TradeInfoItem</span><span class="s5">()</span>
+      <span class="s1">this</span><span class="s3">.</span><span class="s1">TradeInfoItem</span><span class="s5">()</span>
+      <span class="s1">this</span><span class="s3">.</span><span class="s1">TradeInfoItem</span><span class="s5">()</span>
+      <span class="s1">this</span><span class="s3">.</span><span class="s1">TradeInfoItem</span><span class="s5">()</span>
+    <span class="s2">}</span>
+  <span class="s2">}</span>
+
+
+  <span class="s1">build</span><span class="s5">() </span><span class="s2">{</span>
+
+    <span class="s1">this</span><span class="s3">.</span><span class="s1">TradeInfoBox</span><span class="s5">()</span>
+
+  <span class="s2">}</span>
+
+<span class="s2">}</span>
+
+<span class="s1">export </span><span class="s2">{</span><span class="s1">TradeInfo</span><span class="s2">}</span></pre>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>SearchBarComponent.ets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #faa23d;}
+.s2 { color: #aa7dfc;}
+.s3 { color: #e2da90;}
+.s4 { color: #bbb529;}
+.s5 { color: #db7e9b;}
+.s6 { color: #b3e54c;}
+.s7 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+SearchBarComponent.ets</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">{ </span><span class="s0">Constants </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../common/Constants'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">router </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'@kit.ArkUI'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">BusinessError </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'@kit.BasicServicesKit'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">CollectBoxItemModel </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../viewmodel/CollectBoxItem'</span>
+
+
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct SearchBar </span><span class="s1">{</span>
+  <span class="s0">build</span><span class="s5">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s5">() </span><span class="s1">{</span>
+      <span class="s0">Search</span><span class="s5">(</span><span class="s1">{ </span><span class="s0">placeholder</span><span class="s3">:</span><span class="s0">$r</span><span class="s5">(</span><span class="s2">'app.string.search_holder'</span><span class="s5">) </span><span class="s1">}</span><span class="s5">)</span><span class="s3">.</span><span class="s0">margin</span><span class="s5">(</span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">MARGIN_SIXTEEN</span><span class="s5">)</span><span class="s3">.</span><span class="s0">border</span><span class="s5">(</span><span class="s1">{</span><span class="s0">width</span><span class="s3">:</span><span class="s6">2</span><span class="s1">}</span><span class="s5">)</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s5">(</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">White</span><span class="s5">)</span>
+    <span class="s1">}</span>
+  <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct MessageSearch </span><span class="s1">{</span>
+
+
+  <span class="s0">build</span><span class="s5">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s5">() </span><span class="s1">{</span>
+      <span class="s0">Search</span><span class="s5">(</span><span class="s1">{ </span><span class="s0">placeholder</span><span class="s3">:</span><span class="s0">$r</span><span class="s5">(</span><span class="s2">'app.string.message_search_holder'</span><span class="s5">) </span><span class="s1">}</span><span class="s5">)</span><span class="s3">.</span><span class="s0">margin</span><span class="s5">(</span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">MARGIN_SIXTEEN</span><span class="s5">)</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s5">(</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">White</span><span class="s5">)</span>
+    <span class="s1">}</span>
+  <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct SysTab_Top </span><span class="s1">{</span>
+
+
+  <span class="s0">build</span><span class="s5">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s5">() </span><span class="s1">{</span>
+      <span class="s0">Button</span><span class="s5">(</span><span class="s1">{</span><span class="s0">type</span><span class="s3">: </span><span class="s0">ButtonType</span><span class="s3">.</span><span class="s0">Normal</span><span class="s1">}</span><span class="s5">) </span><span class="s1">{</span>
+        <span class="s0">Text</span><span class="s5">(</span><span class="s2">' ＜ '</span><span class="s5">)</span><span class="s3">.</span><span class="s0">fontSize</span><span class="s5">(</span><span class="s6">30</span><span class="s5">)</span><span class="s3">.</span><span class="s0">fontWeight</span><span class="s5">(</span><span class="s2">&quot;bolder&quot;</span><span class="s5">)</span><span class="s3">.</span><span class="s0">fontColor</span><span class="s5">(</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">White</span><span class="s5">)</span>
+      <span class="s1">}</span><span class="s3">.</span><span class="s0">onClick</span><span class="s5">(() </span><span class="s3">=&gt; </span><span class="s1">{</span>
+        <span class="s0">console</span><span class="s3">.</span><span class="s0">info</span><span class="s5">(</span><span class="s2">`Succeeded in clicking the 'Back' button.`</span><span class="s5">)</span>
+        <span class="s0">try </span><span class="s1">{</span>
+          <span class="s7">// 返回第一页</span>
+          <span class="s0">router</span><span class="s3">.</span><span class="s0">back</span><span class="s5">()</span>
+          <span class="s0">console</span><span class="s3">.</span><span class="s0">info</span><span class="s5">(</span><span class="s2">'Succeeded in returning to the first page.'</span><span class="s5">)</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s5">(</span><span class="s0">err</span><span class="s5">) </span><span class="s1">{</span>
+          <span class="s0">let code </span><span class="s3">= </span><span class="s5">(</span><span class="s0">err as BusinessError</span><span class="s5">)</span><span class="s3">.</span><span class="s0">code</span><span class="s3">;</span>
+          <span class="s0">let message </span><span class="s3">= </span><span class="s5">(</span><span class="s0">err as BusinessError</span><span class="s5">)</span><span class="s3">.</span><span class="s0">message</span><span class="s3">;</span>
+          <span class="s0">console</span><span class="s3">.</span><span class="s0">error</span><span class="s5">(</span><span class="s2">`Failed to return to the first page. Code is </span><span class="s1">${</span><span class="s0">code</span><span class="s1">}</span><span class="s2">, message is </span><span class="s1">${</span><span class="s0">message</span><span class="s1">}</span><span class="s2">`</span><span class="s5">)</span>
+        <span class="s1">}</span>
+      <span class="s1">}</span><span class="s5">)</span>
+      <span class="s3">.</span><span class="s0">width</span><span class="s5">(</span><span class="s6">60</span><span class="s5">)</span><span class="s3">.</span><span class="s0">height</span><span class="s5">(</span><span class="s2">'100%'</span><span class="s5">)</span><span class="s3">.</span><span class="s0">padding</span><span class="s5">(</span><span class="s6">5</span><span class="s5">)</span><span class="s3">.</span><span class="s0">linearGradient</span><span class="s5">(</span><span class="s1">{</span>
+        <span class="s0">angle</span><span class="s3">: </span><span class="s6">90</span><span class="s3">,</span>
+        <span class="s0">colors</span><span class="s3">: </span><span class="s5">[</span>
+          <span class="s5">[</span><span class="s0">$r</span><span class="s5">(</span><span class="s2">'app.color.topic_color_light'</span><span class="s5">)</span><span class="s3">, </span><span class="s6">0.0</span><span class="s5">]</span><span class="s3">,</span>
+          <span class="s5">[</span><span class="s0">$r</span><span class="s5">(</span><span class="s2">'app.color.topic_color'</span><span class="s5">)</span><span class="s3">, </span><span class="s6">1.0</span><span class="s5">]</span><span class="s3">,</span><span class="s5">]</span><span class="s1">}</span><span class="s5">)</span>
+
+    <span class="s1">}</span><span class="s3">.</span><span class="s0">alignItems</span><span class="s5">(</span><span class="s0">VerticalAlign</span><span class="s3">.</span><span class="s0">Center</span><span class="s5">)</span><span class="s3">.</span><span class="s0">width</span><span class="s5">(</span><span class="s2">'100%'</span><span class="s5">)</span><span class="s3">.</span><span class="s0">height</span><span class="s5">(</span><span class="s6">60</span><span class="s5">)</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s5">(</span><span class="s0">$r</span><span class="s5">(</span><span class="s2">'app.color.topic_color'</span><span class="s5">))</span>
+  <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct Topic_Top </span><span class="s1">{</span>
+  <span class="s4">@</span><span class="s0">State topicColor</span><span class="s3">:</span><span class="s0">ResourceColor </span><span class="s3">= </span><span class="s0">$r</span><span class="s5">(</span><span class="s2">'app.color.topic_color'</span><span class="s5">)</span>
+  <span class="s0">build</span><span class="s5">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s5">() </span><span class="s1">{</span>
+      <span class="s0">SearchBar</span><span class="s5">()</span>
+    <span class="s1">}</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s5">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">topicColor</span><span class="s5">)</span><span class="s3">.</span><span class="s0">width</span><span class="s5">(</span><span class="s2">'100%'</span><span class="s5">)</span><span class="s3">.</span><span class="s0">height</span><span class="s5">(</span><span class="s6">140</span><span class="s5">)</span><span class="s3">.</span><span class="s0">linearGradient</span><span class="s5">(</span><span class="s1">{</span>
+      <span class="s0">angle</span><span class="s3">: </span><span class="s6">0</span><span class="s3">,</span>
+      <span class="s0">colors</span><span class="s3">: </span><span class="s5">[</span>
+        <span class="s5">[</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">White</span><span class="s3">, </span><span class="s6">0.0</span><span class="s5">]</span><span class="s3">,</span>
+        <span class="s5">[</span><span class="s0">this</span><span class="s3">.</span><span class="s0">topicColor</span><span class="s3">, </span><span class="s6">1.0</span><span class="s5">]</span><span class="s3">,</span><span class="s5">]</span><span class="s1">}</span><span class="s5">)</span>
+
+  <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct Message_Top </span><span class="s1">{</span>
+  <span class="s4">@</span><span class="s0">State topicColor</span><span class="s3">:</span><span class="s0">ResourceColor </span><span class="s3">= </span><span class="s0">$r</span><span class="s5">(</span><span class="s2">'app.color.topic_color'</span><span class="s5">)</span>
+  <span class="s0">build</span><span class="s5">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s5">() </span><span class="s1">{</span>
+      <span class="s0">MessageSearch</span><span class="s5">()</span>
+    <span class="s1">}</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s5">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">topicColor</span><span class="s5">)</span><span class="s3">.</span><span class="s0">width</span><span class="s5">(</span><span class="s2">'100%'</span><span class="s5">)</span><span class="s3">.</span><span class="s0">height</span><span class="s5">(</span><span class="s6">140</span><span class="s5">)</span><span class="s3">.</span><span class="s0">linearGradient</span><span class="s5">(</span><span class="s1">{</span>
+      <span class="s0">angle</span><span class="s3">: </span><span class="s6">0</span><span class="s3">,</span>
+      <span class="s0">colors</span><span class="s3">: </span><span class="s5">[</span>
+        <span class="s5">[</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">White</span><span class="s3">, </span><span class="s6">0.0</span><span class="s5">]</span><span class="s3">,</span>
+        <span class="s5">[</span><span class="s0">this</span><span class="s3">.</span><span class="s0">topicColor</span><span class="s3">, </span><span class="s6">1.0</span><span class="s5">]</span><span class="s3">,</span><span class="s5">]</span><span class="s1">}</span><span class="s5">)</span>
+
+  <span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s4">@</span><span class="s0">Preview</span>
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct CollectBox </span><span class="s1">{</span>
+
+  <span class="s0">build</span><span class="s5">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s5">() </span><span class="s1">{</span>
+      <span class="s0">Image</span><span class="s5">(</span><span class="s0">$rawfile</span><span class="s5">(</span><span class="s2">'community/media/test.png'</span><span class="s5">))</span>
+    <span class="s1">}</span><span class="s3">.</span><span class="s0">padding</span><span class="s5">(</span><span class="s6">15</span><span class="s5">)</span><span class="s3">.</span><span class="s0">borderRadius</span><span class="s5">(</span><span class="s6">30</span><span class="s5">)</span>
+  <span class="s1">}</span>
+<span class="s1">}</span>
+
+
+<span class="s0">export </span><span class="s1">{</span><span class="s0">CollectBox</span><span class="s1">}</span>
+<span class="s0">export </span><span class="s1">{</span><span class="s0">SearchBar</span><span class="s1">}</span>
+<span class="s0">export </span><span class="s1">{</span><span class="s0">MessageSearch</span><span class="s1">}</span>
+<span class="s0">export </span><span class="s1">{</span><span class="s0">SysTab_Top</span><span class="s1">}</span>
+<span class="s0">export </span><span class="s1">{</span><span class="s0">Topic_Top</span><span class="s1">}</span>
+<span class="s0">export </span><span class="s1">{</span><span class="s0">Message_Top</span><span class="s1">}</span></pre>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>MainTab.ets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #faa23d;}
+.s2 { color: #aa7dfc;}
+.s3 { color: #e2da90;}
+.s4 { color: #bbb529;}
+.s5 { color: #808080;}
+.s6 { color: #b3e54c;}
+.s7 { color: #db7e9b;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainTab.ets</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">{ </span><span class="s0">initBoxData </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../viewmodel/CollectBoxViewModel'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">CollectBox</span><span class="s3">, </span><span class="s0">Topic_Top </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'./SearchBarComponent'</span>
+
+<span class="s4">@</span><span class="s0">Preview</span>
+<span class="s4">@</span><span class="s0">Component</span>
+<span class="s0">struct MainPage </span><span class="s1">{</span>
+  <span class="s5">// @State box_data: Array&lt;CollectBox&gt; = initBoxData();</span>
+  <span class="s4">@</span><span class="s0">State stan_color</span><span class="s3">:</span><span class="s0">ResourceColor </span><span class="s3">= </span><span class="s2">'#6FE838'</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State stan_light_color</span><span class="s3">:</span><span class="s0">ResourceColor </span><span class="s3">= </span><span class="s2">'#A6E885'</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State full_w</span><span class="s3">: </span><span class="s0">Length </span><span class="s3">= </span><span class="s2">'100%'</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State stan_h</span><span class="s3">: </span><span class="s0">Length </span><span class="s3">= </span><span class="s6">140</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State currentIndex</span><span class="s3">: </span><span class="s0">number </span><span class="s3">= </span><span class="s6">0</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State iconOffset</span><span class="s3">: </span><span class="s0">number </span><span class="s3">= </span><span class="s6">0</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State initNumber</span><span class="s3">: </span><span class="s0">number </span><span class="s3">= </span><span class="s6">0</span><span class="s3">;</span>
+
+
+  <span class="s4">@</span><span class="s0">Builder</span>
+  <span class="s0">BoxItem</span><span class="s7">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s7">() </span><span class="s1">{</span>
+    <span class="s1">}</span><span class="s3">.</span><span class="s0">width</span><span class="s7">(</span><span class="s2">'45%'</span><span class="s7">)</span><span class="s3">.</span><span class="s0">height</span><span class="s7">(</span><span class="s6">240</span><span class="s7">)</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s7">(</span><span class="s0">$r</span><span class="s7">(</span><span class="s2">'app.color.topic_color_light'</span><span class="s7">))</span><span class="s3">.</span><span class="s0">borderRadius</span><span class="s7">(</span><span class="s6">15</span><span class="s7">)</span><span class="s3">.</span><span class="s0">margin</span><span class="s7">(</span><span class="s6">5</span><span class="s7">)</span>
+  <span class="s1">}</span>
+  <span class="s0">build</span><span class="s7">() </span><span class="s1">{</span>
+    <span class="s0">Row</span><span class="s7">() </span><span class="s1">{</span>
+      <span class="s0">Column</span><span class="s7">() </span><span class="s1">{</span>
+        <span class="s0">Topic_Top</span><span class="s7">()</span>
+        <span class="s0">Scroll</span><span class="s7">() </span><span class="s1">{</span>
+          <span class="s0">Flex</span><span class="s7">(</span><span class="s1">{ </span><span class="s0">justifyContent</span><span class="s3">: </span><span class="s0">FlexAlign</span><span class="s3">.</span><span class="s0">SpaceEvenly </span><span class="s3">, </span><span class="s0">wrap</span><span class="s3">: </span><span class="s0">FlexWrap</span><span class="s3">.</span><span class="s0">Wrap </span><span class="s1">}</span><span class="s7">) </span><span class="s1">{</span>
+
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+            <span class="s0">this</span><span class="s3">.</span><span class="s0">BoxItem</span><span class="s7">()</span>
+
+
+
+
+          <span class="s1">}</span><span class="s3">.</span><span class="s0">padding</span><span class="s7">(</span><span class="s1">{ </span><span class="s2">'top'</span><span class="s3">: </span><span class="s6">10</span><span class="s3">, </span><span class="s2">'bottom'</span><span class="s3">: </span><span class="s6">10 </span><span class="s1">}</span><span class="s7">)</span>
+        <span class="s1">}</span><span class="s3">.</span><span class="s0">scrollable</span><span class="s7">(</span><span class="s0">ScrollDirection</span><span class="s3">.</span><span class="s0">Vertical</span><span class="s7">)</span><span class="s3">.</span><span class="s0">edgeEffect</span><span class="s7">(</span><span class="s0">EdgeEffect</span><span class="s3">.</span><span class="s0">Spring</span><span class="s7">)</span><span class="s3">.</span><span class="s0">scrollBar</span><span class="s7">(</span><span class="s0">BarState</span><span class="s3">.</span><span class="s0">Off</span><span class="s7">)</span>
+      <span class="s1">}</span><span class="s3">.</span><span class="s0">height</span><span class="s7">(</span><span class="s2">'100%'</span><span class="s7">)</span>
+    <span class="s1">}</span>
+  <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s0">export </span><span class="s1">{</span><span class="s0">MainPage</span><span class="s1">}</span></pre>
+</body>
+</html>

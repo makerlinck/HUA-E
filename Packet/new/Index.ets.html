@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>Index.ets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #faa23d;}
+.s2 { color: #aa7dfc;}
+.s3 { color: #e2da90;}
+.s4 { color: #bbb529;}
+.s5 { color: #b3e54c;}
+.s6 { color: #db7e9b;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Index.ets</font>
+</center></td></tr></table>
+<pre>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">initTabTuData </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../viewmodel/BottomTabViewModel'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">BottomTabModel </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../viewmodel/BottomTabItem'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">Constants </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'../common/Constants'</span><span class="s3">;</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">MainPage </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'./MainTab'</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">Discover </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'./DiscoverTab'</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">ContactTab </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'./ContactTab'</span>
+<span class="s0">import </span><span class="s1">{ </span><span class="s0">AboutMeComponent </span><span class="s1">} </span><span class="s0">from </span><span class="s2">'./AboutMeTab'</span>
+<span class="s4">@</span><span class="s0">Preview</span>
+<span class="s4">@</span><span class="s0">Entry</span>
+<span class="s0">struct RudderStyleTab </span><span class="s1">{</span>
+
+  <span class="s4">@</span><span class="s0">State full_w</span><span class="s3">: </span><span class="s0">Length </span><span class="s3">= </span><span class="s2">'100%'</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State stan_h</span><span class="s3">: </span><span class="s0">Length </span><span class="s3">= </span><span class="s5">140</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State tabArray</span><span class="s3">: </span><span class="s0">Array</span><span class="s3">&lt;</span><span class="s0">BottomTabModel</span><span class="s3">&gt; = </span><span class="s0">initTabTuData</span><span class="s6">()</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State currentIndex</span><span class="s3">: </span><span class="s0">number </span><span class="s3">= </span><span class="s5">0</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State iconOffset</span><span class="s3">: </span><span class="s0">number </span><span class="s3">= </span><span class="s5">0</span><span class="s3">;</span>
+  <span class="s4">@</span><span class="s0">State initNumber</span><span class="s3">: </span><span class="s0">number </span><span class="s3">= </span><span class="s5">0</span><span class="s3">;</span>
+  <span class="s0">private controller</span><span class="s3">: </span><span class="s0">TabsController </span><span class="s3">= </span><span class="s0">new TabsController</span><span class="s6">()</span>
+
+  <span class="s4">@</span><span class="s0">Builder</span>
+  <span class="s0">Tab</span><span class="s6">(</span><span class="s0">selectImage</span><span class="s3">: </span><span class="s0">Resource</span><span class="s3">, </span><span class="s0">defaultImage</span><span class="s3">: </span><span class="s0">Resource</span><span class="s3">, </span><span class="s0">title</span><span class="s3">: </span><span class="s0">string </span><span class="s3">| </span><span class="s0">Resource</span><span class="s3">, </span><span class="s0">middleMode</span><span class="s3">: </span><span class="s0">boolean</span><span class="s3">, </span><span class="s0">index</span><span class="s3">: </span><span class="s0">number</span><span class="s6">) </span><span class="s1">{</span>
+    <span class="s0">Column</span><span class="s6">() </span><span class="s1">{</span>
+      <span class="s0">if </span><span class="s6">(</span><span class="s0">index </span><span class="s3">=== </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">TAB_INDEX_TWO</span><span class="s6">) </span><span class="s1">{</span>
+        <span class="s0">Image</span><span class="s6">(</span><span class="s0">defaultImage</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">size</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">width</span><span class="s3">: </span><span class="s5">56</span><span class="s3">, </span><span class="s0">height</span><span class="s3">: </span><span class="s5">56 </span><span class="s1">}</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">offset</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">y</span><span class="s3">: -</span><span class="s5">15 </span><span class="s1">}</span><span class="s6">)</span>
+      <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+        <span class="s0">Image</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">currentIndex </span><span class="s3">=== </span><span class="s0">index </span><span class="s3">? </span><span class="s0">selectImage </span><span class="s3">: </span><span class="s0">defaultImage</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">size</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">width</span><span class="s3">: </span><span class="s5">40</span><span class="s3">, </span><span class="s0">height</span><span class="s3">: </span><span class="s5">40 </span><span class="s1">}</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">offset</span><span class="s6">(</span><span class="s1">{</span>
+            <span class="s0">y</span><span class="s3">: </span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">currentIndex </span><span class="s3">=== </span><span class="s0">index </span><span class="s3">&amp;&amp; </span><span class="s0">this</span><span class="s3">.</span><span class="s0">currentIndex </span><span class="s3">!== </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">TAB_INDEX_TWO</span><span class="s6">)</span>
+              <span class="s3">? </span><span class="s0">this</span><span class="s3">.</span><span class="s0">iconOffset </span><span class="s3">: </span><span class="s0">this</span><span class="s3">.</span><span class="s0">initNumber</span>
+          <span class="s1">}</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">objectFit</span><span class="s6">(</span><span class="s0">ImageFit</span><span class="s3">.</span><span class="s0">Contain</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">animation</span><span class="s6">(</span><span class="s1">{</span>
+            <span class="s0">duration</span><span class="s3">: </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">ANIMATION_DURATION</span><span class="s3">,</span>
+            <span class="s0">curve</span><span class="s3">: </span><span class="s0">Curve</span><span class="s3">.</span><span class="s0">Ease</span><span class="s3">,</span>
+            <span class="s0">playMode</span><span class="s3">: </span><span class="s0">PlayMode</span><span class="s3">.</span><span class="s0">Normal</span>
+          <span class="s1">}</span><span class="s6">)</span>
+      <span class="s1">}</span>
+      <span class="s0">if </span><span class="s6">(</span><span class="s3">!</span><span class="s0">middleMode</span><span class="s6">) </span><span class="s1">{</span>
+        <span class="s0">Text</span><span class="s6">(</span><span class="s0">title</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">fontSize</span><span class="s6">(</span><span class="s5">15</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">margin</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">top</span><span class="s3">: </span><span class="s5">6 </span><span class="s1">}</span><span class="s6">)</span>
+          <span class="s3">.</span><span class="s0">fontColor</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">currentIndex </span><span class="s3">=== </span><span class="s0">index </span><span class="s3">? </span><span class="s2">'#3388ff' </span><span class="s3">: </span><span class="s2">'#E6000000'</span><span class="s6">)</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s3">.</span><span class="s0">padding</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">top</span><span class="s3">: </span><span class="s5">11 </span><span class="s1">}</span><span class="s6">)</span>
+    <span class="s3">.</span><span class="s0">width</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">full_w</span><span class="s6">)</span>
+    <span class="s3">.</span><span class="s0">backgroundColor</span><span class="s6">(</span><span class="s0">$r</span><span class="s6">(</span><span class="s2">'app.color.tab_gray_background_color'</span><span class="s6">))</span>
+    <span class="s3">.</span><span class="s0">height</span><span class="s6">(</span><span class="s5">90</span><span class="s6">)</span>
+    <span class="s3">.</span><span class="s0">translate</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">y</span><span class="s3">: </span><span class="s5">40 </span><span class="s1">}</span><span class="s6">)</span>
+    <span class="s3">.</span><span class="s0">onClick</span><span class="s6">(() </span><span class="s3">=&gt; </span><span class="s1">{</span>
+      <span class="s0">if </span><span class="s6">(</span><span class="s0">index </span><span class="s3">!== </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">TAB_INDEX_TWO</span><span class="s6">) </span><span class="s1">{</span>
+        <span class="s0">this</span><span class="s3">.</span><span class="s0">currentIndex </span><span class="s3">= </span><span class="s0">index</span><span class="s3">;</span>
+        <span class="s0">this</span><span class="s3">.</span><span class="s0">controller</span><span class="s3">.</span><span class="s0">changeIndex</span><span class="s6">(</span><span class="s0">index</span><span class="s6">)</span><span class="s3">;</span>
+        <span class="s0">this</span><span class="s3">.</span><span class="s0">iconOffset </span><span class="s3">= </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">ICON_Offset</span><span class="s3">;</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span><span class="s6">)</span><span class="s3">.</span><span class="s0">offset</span><span class="s6">(</span><span class="s1">{</span><span class="s0">y</span><span class="s3">:-</span><span class="s5">40</span><span class="s1">}</span><span class="s6">)</span>
+
+  <span class="s1">}</span>
+
+
+  <span class="s0">build</span><span class="s6">() </span><span class="s1">{</span>
+    <span class="s0">Stack</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">alignContent</span><span class="s3">: </span><span class="s0">Alignment</span><span class="s3">.</span><span class="s0">BottomStart </span><span class="s1">}</span><span class="s6">) </span><span class="s1">{</span>
+      <span class="s0">Tabs</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">barPosition</span><span class="s3">: </span><span class="s0">BarPosition</span><span class="s3">.</span><span class="s0">End</span><span class="s3">, </span><span class="s0">controller</span><span class="s3">: </span><span class="s0">this</span><span class="s3">.</span><span class="s0">controller </span><span class="s1">}</span><span class="s6">) </span><span class="s1">{</span>
+        <span class="s0">ForEach</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">tabArray</span><span class="s3">, </span><span class="s6">(</span><span class="s0">item</span><span class="s3">: </span><span class="s0">BottomTabModel</span><span class="s3">, </span><span class="s0">index</span><span class="s3">: </span><span class="s0">number</span><span class="s6">) </span><span class="s3">=&gt; </span><span class="s1">{</span>
+          <span class="s0">if </span><span class="s6">(</span><span class="s0">index </span><span class="s3">=== </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">TAB_INDEX_ZERO</span><span class="s6">) </span><span class="s1">{</span>
+            <span class="s0">TabContent</span><span class="s6">() </span><span class="s1">{</span><span class="s0">MainPage</span><span class="s6">()</span><span class="s1">}</span>
+          <span class="s1">}</span>
+
+          <span class="s0">else if </span><span class="s6">(</span><span class="s0">index </span><span class="s3">=== </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">TAB_INDEX_ONE</span><span class="s6">) </span><span class="s1">{</span>
+            <span class="s0">TabContent</span><span class="s6">() </span><span class="s1">{</span><span class="s0">Discover</span><span class="s6">()</span><span class="s1">}</span>
+          <span class="s1">}</span>
+          <span class="s0">else if </span><span class="s6">(</span><span class="s0">index </span><span class="s3">=== </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">TAB_INDEX_THREE</span><span class="s6">) </span><span class="s1">{</span>
+            <span class="s0">TabContent</span><span class="s6">() </span><span class="s1">{</span><span class="s0">ContactTab</span><span class="s6">()</span><span class="s1">}</span>
+          <span class="s1">}</span>
+          <span class="s0">else if </span><span class="s6">(</span><span class="s0">index </span><span class="s3">=== </span><span class="s0">Constants</span><span class="s3">.</span><span class="s0">TAB_INDEX_FOUR</span><span class="s6">) </span><span class="s1">{</span>
+            <span class="s0">TabContent</span><span class="s6">() </span><span class="s1">{</span><span class="s0">AboutMeComponent</span><span class="s6">()</span><span class="s1">}</span>
+          <span class="s1">}</span>
+          <span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">TabContent</span><span class="s6">() </span><span class="s1">{}</span><span class="s3">.</span><span class="s0">backgroundColor</span><span class="s6">(</span><span class="s0">Color</span><span class="s3">.</span><span class="s0">White</span><span class="s6">)</span>
+          <span class="s1">}</span>
+        <span class="s1">}</span><span class="s3">, </span><span class="s6">(</span><span class="s0">item</span><span class="s3">: </span><span class="s0">BottomTabModel</span><span class="s3">, </span><span class="s0">index</span><span class="s3">: </span><span class="s0">number</span><span class="s6">) </span><span class="s3">=&gt; </span><span class="s0">JSON</span><span class="s3">.</span><span class="s0">stringify</span><span class="s6">(</span><span class="s0">item</span><span class="s6">) </span><span class="s3">+ </span><span class="s0">index</span><span class="s6">)</span>
+      <span class="s1">}</span>
+      <span class="s3">.</span><span class="s0">scrollable</span><span class="s6">(</span><span class="s0">false</span><span class="s6">)</span><span class="s3">.</span><span class="s0">barHeight</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">initNumber</span><span class="s6">)</span><span class="s3">.</span><span class="s0">animationDuration</span><span class="s6">(</span><span class="s5">0</span><span class="s6">)</span><span class="s3">.</span><span class="s0">offset</span><span class="s6">(</span><span class="s1">{ </span><span class="s0">y</span><span class="s3">: -</span><span class="s5">45 </span><span class="s1">}</span><span class="s6">)</span>
+
+
+      <span class="s0">Flex</span><span class="s6">() </span><span class="s1">{</span>
+        <span class="s0">ForEach</span><span class="s6">(</span><span class="s0">this</span><span class="s3">.</span><span class="s0">tabArray</span><span class="s3">, </span><span class="s6">(</span><span class="s0">item</span><span class="s3">: </span><span class="s0">BottomTabModel</span><span class="s3">, </span><span class="s0">index</span><span class="s3">: </span><span class="s0">number</span><span class="s6">) </span><span class="s3">=&gt; </span><span class="s1">{</span>
+          <span class="s0">this</span><span class="s3">.</span><span class="s0">Tab</span><span class="s6">(</span><span class="s0">item</span><span class="s3">.</span><span class="s0">selectImage</span><span class="s3">, </span><span class="s0">item</span><span class="s3">.</span><span class="s0">defaultImage</span><span class="s3">, </span><span class="s0">item</span><span class="s3">.</span><span class="s0">title</span><span class="s3">, </span><span class="s0">item</span><span class="s3">.</span><span class="s0">middleMode</span><span class="s3">, </span><span class="s0">index</span><span class="s6">)</span>
+        <span class="s1">}</span><span class="s3">, </span><span class="s6">(</span><span class="s0">item</span><span class="s3">: </span><span class="s0">BottomTabModel</span><span class="s3">, </span><span class="s0">index</span><span class="s3">: </span><span class="s0">number</span><span class="s6">) </span><span class="s3">=&gt; </span><span class="s0">JSON</span><span class="s3">.</span><span class="s0">stringify</span><span class="s6">(</span><span class="s0">item</span><span class="s6">) </span><span class="s3">+ </span><span class="s0">index</span><span class="s6">)</span>
+      <span class="s1">}</span><span class="s3">.</span><span class="s0">offset</span><span class="s6">(</span><span class="s1">{</span><span class="s0">y</span><span class="s3">:</span><span class="s5">40</span><span class="s1">}</span><span class="s6">)</span>
+    <span class="s1">}</span>
+  <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
